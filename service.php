@@ -25,7 +25,7 @@ try{
 	$classObj = new ReflectionClass($className);
 	$methodObj = $classObj->getMethod($methodName);
 	$instance = $classObj->newInstanceArgs();
-	$invokeResult = $methodObj->invokeArgs($instance, $methodParams);
+	$invokeResult = $methodObj->invokeArgs($instance, $methodParams?$methodParams:array());
 	echo $invokeResult->serializeToString();
 //	error_log($invokeResult->serializeToString());
 }catch(Exception $e){

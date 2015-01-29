@@ -7,10 +7,20 @@ class Base{
 		$result->setA($a);
 		$result->setB($b);
 		$result->setC($calc);
-		$this->aa();
 		return $result;
-	}	
+	}
 
+	function testApcAdd(){
+		apc_store("apckey", array(1,2,3));
+	}
+
+	function testApcGet(){
+		print_r(apc_fetch("apckey"));
+	}
+
+	function testApcDelete(){
+		apc_delete("apckey");
+	}
 	function throwexception(){
 		throw new GameException("my exception", 1111);
 	}
