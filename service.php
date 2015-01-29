@@ -27,6 +27,7 @@ try{
 	$instance = $classObj->newInstanceArgs();
 	$invokeResult = $methodObj->invokeArgs($instance, $methodParams);
 	echo $invokeResult->serializeToString();
+//	error_log($invokeResult->serializeToString());
 }catch(Exception $e){
 	if($e instanceof GameException){
 		$gameException = $e;	
@@ -34,6 +35,7 @@ try{
 		$gameException = new GameException($e->getMessage(), $e->getCode());
 	}
 	//echo $gameException->toBinData($useBin);
-	echo $e->getMessage();
+//	echo $e->getMessage();
+	echo $e->__toString();
 }
 ?>

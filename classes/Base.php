@@ -7,7 +7,12 @@ class Base{
 		$result->setA($a);
 		$result->setB($b);
 		$result->setC($calc);
+		$this->aa();
 		return $result;
 	}	
+
+	function throwexception(){
+		throw new GameException("my exception", 1111);
+	}
 }
 ?>
