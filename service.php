@@ -8,6 +8,7 @@ $className = $_GET['c'];
 $methodName = $_GET['f'];
 $useBin = $_GET['b'];
 $methodParams = json_decode($_GET['p'], true);
+$needtrancation = 0;
 try{
 	if(isset($_POST['req'])){
 		$reqInfo = new RemoteCall();
@@ -24,6 +25,14 @@ try{
 	$organizedparams = array();
 	$classObj = new ReflectionClass($className);
 	$methodObj = $classObj->getMethod($methodName);
+	$params = $methodObj->getParameters();
+	/*
+	foreach($params as $p){
+		if($p->getName() == 'needtrancation'){
+			$needtrancation = 1;
+		}
+	}
+	*/
 	$instance = $classObj->newInstanceArgs();
 	$invokeResult = $methodObj->invokeArgs($instance, $methodParams?$methodParams:array());
 	echo $invokeResult->serializeToString();

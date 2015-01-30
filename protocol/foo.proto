@@ -24,3 +24,14 @@ message Result
 	required int32 b = 2;
 	required float c = 3;
 }
+
+message CarDate{
+	required int32 dateId = 1;
+	required int32 userId = 2;
+	required string from = 3;
+	required string to = 4;
+}
+
+message CarDateList{
+	repeated CarDate dateList = 1;
+}

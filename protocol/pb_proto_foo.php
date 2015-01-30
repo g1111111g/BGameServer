@@ -1,6 +1,6 @@
 <?php
 /**
- * Auto generated from foo.proto at 2015-01-29 16:51:48
+ * Auto generated from foo.proto at 2015-01-30 16:06:02
  */
 
 /**
@@ -667,5 +667,274 @@ class Result extends \ProtobufMessage
     public function getC()
     {
         return $this->get(self::C);
+    }
+}
+
+/**
+ * CarDate message
+ */
+class CarDate extends \ProtobufMessage
+{
+    /* Field index constants */
+    const DATEID = 1;
+    const USERID = 2;
+    const FROM = 3;
+    const TO = 4;
+
+    /* @var array Field descriptors */
+    protected static $fields = array(
+        self::DATEID => array(
+            'name' => 'dateId',
+            'required' => true,
+            'type' => 5,
+        ),
+        self::USERID => array(
+            'name' => 'userId',
+            'required' => true,
+            'type' => 5,
+        ),
+        self::FROM => array(
+            'name' => 'from',
+            'required' => true,
+            'type' => 7,
+        ),
+        self::TO => array(
+            'name' => 'to',
+            'required' => true,
+            'type' => 7,
+        ),
+    );
+
+    /**
+     * Constructs new message container and clears its internal state
+     *
+     * @return null
+     */
+    public function __construct()
+    {
+        $this->reset();
+    }
+
+    /**
+     * Clears message values and sets default ones
+     *
+     * @return null
+     */
+    public function reset()
+    {
+        $this->values[self::DATEID] = null;
+        $this->values[self::USERID] = null;
+        $this->values[self::FROM] = null;
+        $this->values[self::TO] = null;
+    }
+
+    /**
+     * Returns field descriptors
+     *
+     * @return array
+     */
+    public function fields()
+    {
+        return self::$fields;
+    }
+
+    /**
+     * Sets value of 'dateId' property
+     *
+     * @param int $value Property value
+     *
+     * @return null
+     */
+    public function setDateId($value)
+    {
+        return $this->set(self::DATEID, $value);
+    }
+
+    /**
+     * Returns value of 'dateId' property
+     *
+     * @return int
+     */
+    public function getDateId()
+    {
+        return $this->get(self::DATEID);
+    }
+
+    /**
+     * Sets value of 'userId' property
+     *
+     * @param int $value Property value
+     *
+     * @return null
+     */
+    public function setUserId($value)
+    {
+        return $this->set(self::USERID, $value);
+    }
+
+    /**
+     * Returns value of 'userId' property
+     *
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->get(self::USERID);
+    }
+
+    /**
+     * Sets value of 'from' property
+     *
+     * @param string $value Property value
+     *
+     * @return null
+     */
+    public function setFrom($value)
+    {
+        return $this->set(self::FROM, $value);
+    }
+
+    /**
+     * Returns value of 'from' property
+     *
+     * @return string
+     */
+    public function getFrom()
+    {
+        return $this->get(self::FROM);
+    }
+
+    /**
+     * Sets value of 'to' property
+     *
+     * @param string $value Property value
+     *
+     * @return null
+     */
+    public function setTo($value)
+    {
+        return $this->set(self::TO, $value);
+    }
+
+    /**
+     * Returns value of 'to' property
+     *
+     * @return string
+     */
+    public function getTo()
+    {
+        return $this->get(self::TO);
+    }
+}
+
+/**
+ * CarDateList message
+ */
+class CarDateList extends \ProtobufMessage
+{
+    /* Field index constants */
+    const DATELIST = 1;
+
+    /* @var array Field descriptors */
+    protected static $fields = array(
+        self::DATELIST => array(
+            'name' => 'dateList',
+            'repeated' => true,
+            'type' => 'CarDate'
+        ),
+    );
+
+    /**
+     * Constructs new message container and clears its internal state
+     *
+     * @return null
+     */
+    public function __construct()
+    {
+        $this->reset();
+    }
+
+    /**
+     * Clears message values and sets default ones
+     *
+     * @return null
+     */
+    public function reset()
+    {
+        $this->values[self::DATELIST] = array();
+    }
+
+    /**
+     * Returns field descriptors
+     *
+     * @return array
+     */
+    public function fields()
+    {
+        return self::$fields;
+    }
+
+    /**
+     * Appends value to 'dateList' list
+     *
+     * @param CarDate $value Value to append
+     *
+     * @return null
+     */
+    public function appendDateList(CarDate $value)
+    {
+        return $this->append(self::DATELIST, $value);
+    }
+
+    /**
+     * Clears 'dateList' list
+     *
+     * @return null
+     */
+    public function clearDateList()
+    {
+        return $this->clear(self::DATELIST);
+    }
+
+    /**
+     * Returns 'dateList' list
+     *
+     * @return CarDate[]
+     */
+    public function getDateList()
+    {
+        return $this->get(self::DATELIST);
+    }
+
+    /**
+     * Returns 'dateList' iterator
+     *
+     * @return ArrayIterator
+     */
+    public function getDateListIterator()
+    {
+        return new \ArrayIterator($this->get(self::DATELIST));
+    }
+
+    /**
+     * Returns element from 'dateList' list at given offset
+     *
+     * @param int $offset Position in list
+     *
+     * @return CarDate
+     */
+    public function getDateListAt($offset)
+    {
+        return $this->get(self::DATELIST, $offset);
+    }
+
+    /**
+     * Returns count of 'dateList' list
+     *
+     * @return int
+     */
+    public function getDateListCount()
+    {
+        return $this->count(self::DATELIST);
     }
 }
