@@ -17,5 +17,9 @@ class User extends Base{
 	public function testMemcacheGet(){
 		print_r($this->memcacheGet(array('key', 'key1')));
 	}
+
+	public function testGetUUID(){
+		echo getUUID();
+	}
 }
 ?>

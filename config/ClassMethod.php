@@ -20,11 +20,12 @@ class ClassMethodName{
 			0 => 'getUserInfo',	
 			1 => 'testMemcacheAdd',	
 			2 => 'testMemcacheGet',	
-			3 => '__construct',	
-			4 => 'test',	/** @needtrancation */
-			5 => 'throwException',	
-			6 => 'testTransaction',	
-			7 => 'testSql',	
+			3 => 'testGetUUID',	
+			4 => '__construct',	
+			5 => 'test',	/** @needtrancation */
+			6 => 'throwException',	
+			7 => 'testTransaction',	
+			8 => 'testSql',	
 		),
 	);
 }

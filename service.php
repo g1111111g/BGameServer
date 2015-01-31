@@ -1,6 +1,7 @@
 <?php
 require_once('exception/GameException.php');
 require_once('config/ClassMethod.php');
+require_once('utils/functions.php');
 foreach(glob('classes/*.php') as $class){
 	include_once $class;
 }
