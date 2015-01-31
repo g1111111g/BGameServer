@@ -8,8 +8,7 @@ foreach(glob('classes/*.php') as $class){
 	$classes[] = substr(basename($class), 0, strpos(basename($class), '.php'));
 	include_once $class;
 }
-
-vfprintf($fp, "%s\n%s\n\t%s\n", array('<?php', 'class ClassMethodName{', 'public static $CLASS_METHOD = array('));
+vfprintf($fp, "%s\n%s\n%s\n\t%s\n", array('<?php', '/** This script is auto generate by auto.php,do not modify this manual */', 'class ClassMethodName{', 'public static $CLASS_METHOD = array('));
 
 foreach($classes as $class){
 	$classObj = new ReflectionClass($class);

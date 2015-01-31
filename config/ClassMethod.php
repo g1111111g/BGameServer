@@ -1,4 +1,5 @@
 <?php
+/** This script is auto generate by auto.php,do not modify this manual */
 class ClassMethodName{
 	public static $CLASS_METHOD = array(
 		'Base' => array(
