@@ -1,23 +1,26 @@
 <?php
 require_once('protocol/pb_proto_foo.php');
+require_once('connection/IConnection.php');
 require_once('connection/DBConnection.php');
 require_once('connection/MemcacheConnection.php');
 require_once('config/SQL.php');
 class Base{
 	private $dbConnection;
 	private $memcacheConnection;
-	protected $db;
-	protected $memcache;
+
+	private $db;
+	private $pdoStatement;
+
+	private $memcache;
 
 	public function __construct(){
 		$this->dbConnection = DBConnection::getInstance();
 		$this->db = $this->dbConnection->getConnection();
-	//	$memcacheConnection = MemcacheConnection::getInstance();
+		$this->memcacheConnection = MemcacheConnection::getInstance();
+		$this->memcache = $this->memcacheConnection->getConnection();
 	}
-	/**
-	 	@needtrancation
-	 */
-	function test($a, $b){
+	/** @needtrancation */
+	public function test($a, $b){
 		$calc = $a + $b;
 		$result = new Result();
 		$result->setA($a);
@@ -25,28 +28,66 @@ class Base{
 		$result->setC($calc);
 		return $result;
 	}
+	/** 本地缓存增加key存在则不写入缓存 */
+	protected function apcAdd($key, $value, $expire = 3600){
+		return apc_add($key, $value, $expire);
+	}
+	
+	protected function apcSet($key, $value, $expire = 3600){
+		return apc_store($key, $value, $expire);
+	}
+
+	protected function apcGet($key){
+		return apc_fetch($key);
+	}
+
+	protected function apcDel($key){
+		return apc_delete($key);
+	}
+	
+	/** 原子交换Compare And Swap */
+	protected function apcCas($key, $old, $new){
+		return apc_cas($key, $old, $new);
+	}
+
+
+	/** key存在则不替换 */
+	protected function memcacheAdd($key, $value, $compress = false, $expire = 3600){
+		if($compress){
+			return $this->memcache->add($key, $value, MEMCACHE_COMPRESSED, $expire);
+		}
+		return $this->memcache->add($key, $value, false, $expire);
+
+	}
+	
+	/** key存在也替换  */
+	protected function memcacheSet($key, $value, $compress, $expire){
+		if($compress){
+			return $this->memcache->set($key, $value, MEMCACHE_COMPRESSED, $expire);
+		}
+		return $this->memcache->set($key, $value, false, $expire);
+
+	}
+
+	protected function memcacheDel($key){
+		return $this->memcache->delete($key);
+	}
 	/**
-		测试缓存增加
+	*
+	*@key array or string
 	*/
-	function testApcAdd(){
-		apc_store("apckey", array(1,2,3));
+	protected function memcacheGet($key){
+		return $this->memcache->get($key);
 	}
 
-	function testApcGet(){
-		print_r(apc_fetch("apckey"));
-	}
-
-	function testApcDelete(){
-		apc_delete("apckey");
-	}
-	function throwexception(){
+	public function throwException(){
 		throw new GameException("my exception", 1111);
 	}
-	function testTransaction($sql, $needtrancation = 1){
+	public function testTransaction($sql, $needtrancation = 1){
 		
 	}
 
-	function testSql($accountid){
+	public function testSql($accountid){
 		$sth = $this->db->prepare(SQL::$getUserByAccountID); 
 		$sth->execute(array(':accountid' => $accountid));
 		$carDateList = new CarDateList();
@@ -73,15 +114,82 @@ class Base{
 		}*/
 	}
 
-	function execQuery($query){
-		$query = $this->db->quote($query);
-		$this->db->exec($query);
+	protected function execQuery($query, $params = array()){
+		if(count($params) > 0){
+			$keys = array();
+			$values = array();
+
+			foreach($params as $key => $value){
+				$keys[] = $key;
+				$values[] = $this->db->quote($value);
+			}
+			$query = str_replace($keys, $values, $query);
+		}
+
+		//$query = $this->db->quote($query);
+		return $this->db->exec($query);
 	}
 
-	function query($query){
-		$query = $this->db->quote($query);
-		$this->db->query($query);
+	protected function simpleQuery($query, $params = array()){
+		if(count($params) > 0){
+			$keys = array();
+			$values = array();
+
+			foreach($params as $key => $value){
+				$keys[] = $key;
+				$values[] = $this->db->quote($value);
+			}
+			$query = str_replace($keys, $values, $query);
+		}
+		$sth = $this->db->query($query);
+		if(FALSE != ($result = $sth->fetch(PDO::FETCH_NAMED))){
+			return $result;
+		}
+	}
+	/**
+	*
+	* @reuturn 预处理可以防止SQL注入，一次prepare多次execute比多次prepare execute性能要好
+	*
+	*/
+	protected function query($query, $params = array()){
+		$this->pdoStatement = $this->db->prepare($query);
+		$this->pdoStatement->execute($params);
+		return $sth;
 	}
 
+	protected function fetch(){
+		return $this->pdoStatement->fetch(PDO::FETCH_NAMED);
+	}
+
+	//存储过程 start
+	protected function prepare($query){
+		$this->pdoStatement = $this->db->prepare($query);
+	}
+
+	protected function bindParam($index, $value){
+		$this->pdoStatement->bindParam($index, $value);	
+	}
+
+	protected function execute(){
+		$this->pdoStatement->execute($params);
+	}
+	//存储过程 end
+	
+
+	protected function getLastInsertId(){
+		return $this->db->lastInsertId();
+	}
+
+	protected function beginTransaction(){
+		$this->db->beginTransaction();
+	}
+
+	protected function commit(){
+		$this->db->commit();
+	}
+
+	protected function rollBack(){
+		$this->db->rollBack();
+	}
 }
 ?>

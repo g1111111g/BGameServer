@@ -1,5 +1,5 @@
 <?php
-class DBConnection{
+class DBConnection implements IConnection{
 
     protected $connection;
     private static $instance; 
@@ -23,7 +23,7 @@ class DBConnection{
             }
         }*/
 	try{
-		$dsn = 'mysql:dbname=mysql;host=127.0.0.1;port=3306';
+		$dsn = 'mysql:dbname=yue;host=182.254.191.120;port=3306';
 		$username = 'root';
 		$password = 'powernetrgame001';
 		$options = array(

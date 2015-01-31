@@ -1,5 +1,6 @@
 <?php
 require_once('exception/GameException.php');
+require_once('config/ClassMethod.php');
 foreach(glob('classes/*.php') as $class){
 	include_once $class;
 }
@@ -14,7 +15,7 @@ try{
 		$reqInfo = new RemoteCall();
 		$reqInfo->parseFromString($_POST['req']);
 		$className = $reqInfo->getClassName();
-		$methodName = $reqInfo->getFunctionName();
+		$methodName = ClassMethodName::$CLASS_METHOD[$className][$reqInfo->getFunctionName()];
 		$methodParams = array();
 		for($iterator = $reqInfo->getParamsIterator(); $iterator->valid(); $iterator->next()){
 			$key = $iterator->current()->getParamKey();
@@ -24,6 +25,7 @@ try{
 	}
 	$organizedparams = array();
 	$classObj = new ReflectionClass($className);
+	$methodName = ClassMethodName::$CLASS_METHOD[$className][$methodName];
 	$methodObj = $classObj->getMethod($methodName);
 	$params = $methodObj->getParameters();
 	/*

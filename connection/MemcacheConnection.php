@@ -1,22 +1,22 @@
 <?php
-class MemcachConnection
+class MemcacheConnection implements IConnection
 {
     protected $memcache;
     private static $instance; 
     
     public function __construct() {
-    	$this->memcache = new Memcache;
-    	$this->memcache->connect($this->conf["host"], $this->conf["port"]);
-
-    	if (!$this->memcache){
-    		die("MEMCACHE ERROR: Could not connect");
-    	}
+    	try{
+		$this->memcache = new Memcache;
+		$this->memcache->addServer("127.0.0.1", 11211);
+		$this->memcache->setCompressThreshold(500*1024, 0.2);
+		//$this->memcache->pconnect("127.0.0.1", 11211);
+	}catch(Exception $e){
+		die("memcache connect error".$e->getMessage());
+	}
     }
     
-    public static function getInstance($cfg=null) 
-    { 
-        if (!self::$instance instanceof self) 
-        {
+    public static function getInstance($cfg=null){ 
+        if (!self::$instance instanceof self){
             self::$instance = new self($cfg); 
         } 
         return self::$instance; 
@@ -29,8 +29,7 @@ class MemcachConnection
     * @access public
     * @return object  the database connection object
     */
-    public function getMemcache()
-    {
+    public function getConnection(){
         return $this->memcache;
     }
 }
