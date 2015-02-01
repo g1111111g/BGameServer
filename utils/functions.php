@@ -147,4 +147,11 @@ function getUUID(){
         
         return sprintf ( '%08s-%04s-%04x-%04x-%012s', $time_low, $time_mid, $time_hi_and_version, $clock_seq_hi_and_reserved, $node );
 }
+
+function createGuid(){
+	$chrid = strtoupper(md5(uniqid(mt_rand(), true)));
+	$hypen = chr(45);	//'-'
+	$uuid = substr($chrid, 6, 2).substr($chrid, 4, 2).substr($chrid, 2, 2).substr($chrid, 0, 2).$hypen.substr($charid, 10, 2).substr($charid, 8, 2).$hyphen.substr($charid,14, 2).substr($charid,12, 2).$hyphen.substr($charid,16, 4).$hyphen.substr($charid,20,12);
+	return $uuid;
+}
 ?>

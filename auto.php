@@ -27,4 +27,13 @@ if(!fclose($fp)){
 	die("error close file");
 }
 echo "Generate ClassMethod.php Success!!!";
+if (false != ($fp = fopen('./config/ClassMethod.php', 'r'))){
+	while(false != ($buffer = fgets($fp, 4096))){
+		echo $buffer;
+	}
+	if(!feof($fp)){
+		echo "error eof";
+	}
+	fclose($fp);
+}
 ?>

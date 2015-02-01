@@ -14,8 +14,8 @@ class Base{
 	private $memcache;
 
 	public function __construct(){
-		$this->dbConnection = DBConnection::getInstance();
-		$this->db = $this->dbConnection->getConnection();
+		//$this->dbConnection = DBConnection::getInstance();
+		//$this->db = $this->dbConnection->getConnection();
 		$this->memcacheConnection = MemcacheConnection::getInstance();
 		$this->memcache = $this->memcacheConnection->getConnection();
 	}
@@ -191,5 +191,74 @@ class Base{
 	protected function rollBack(){
 		$this->db->rollBack();
 	}
+
+	/**
+	* 
+	* obtains the receipt data from ios given the storekit receipt
+	* 
+	* @access private
+	* @param $receipt       the user's social network id
+	* @param $sandboxmode   wheter the transaction is executed by a test user or not
+	* @return object        containing the receipt data
+	*/
+	protected function getReceiptData($receipt, $sandboxmode=false)
+	{
+		if ($sandboxmode) 
+		{
+		    $endpoint = 'https://sandbox.itunes.apple.com/verifyReceipt';
+		}
+		else 
+		{
+		    $endpoint = 'https://buy.itunes.apple.com/verifyReceipt';
+		}//$endpoint = 'http://guotanminus.col';
+
+		$postdata = json_encode(
+		    array('receipt-data' => $receipt)
+		);
+
+		$curl = curl_init($endpoint);
+		curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($curl, CURLOPT_POST, true);
+		curl_setopt($curl, CURLOPT_POSTFIELDS, $postdata);curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, 0); 
+		curl_setopt ($curl, CURLOPT_SSL_VERIFYPEER, false);
+
+		$response = curl_exec($curl);
+		$error = curl_errno($curl);
+		$errmessage = curl_error($curl);
+		curl_close($curl);
+
+		if ($error != 0) {
+		    
+		    throw new GameException(ExceptionCode::$net_error, $errmessage, $error);
+		}
+
+		$data = json_decode($response);
+
+		if (!is_object($data))
+		{
+		    throw new GameException(ExceptionCode::$net_error, "Invalid response data");
+		}
+
+		if (!isset($data->status) || $data->status != 0)
+		{
+		    if (!isset($data->status))
+			$message = "Response did not contain status property";
+		    else
+			$message = "status - ".$data->status;
+		    
+		    throw new GameException(ExceptionCode::$receipt_invalid, "Invalid receipt: ".$message);
+		}
+
+		return array(
+		    'quantity'       =>  $data->receipt->quantity,
+		    'product_id'     =>  $data->receipt->product_id,
+		    'transaction_id' =>  $data->receipt->transaction_id,
+		    'purchase_date'  =>  $data->receipt->purchase_date,
+		    'app_item_id'    =>  $data->receipt->app_item_id,
+		    'bid'            =>  $data->receipt->bid,
+		    'bvrs'           =>  $data->receipt->bvrs
+		);
+	}
+
 }
 ?>

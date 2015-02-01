@@ -20,6 +20,10 @@ class User extends Base{
 
 	public function testGetUUID(){
 		echo getUUID();
+		//echo createGuid();
+	}
+
+	public function testAddUser(){
 	}
 }
 ?>
