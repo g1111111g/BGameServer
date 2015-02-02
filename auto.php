@@ -5,8 +5,11 @@ if (!($fp = fopen('./config/ClassMethod.php', 'w+'))){
 }
 $classes = array();
 foreach(glob('classes/*.php') as $class){
-	$classes[] = substr(basename($class), 0, strpos(basename($class), '.php'));
 	include_once $class;
+}
+
+foreach(glob('classes/*Service.php') as $class){
+	$classes[] = substr(basename($class), 0, strpos(basename($class), '.php'));
 }
 vfprintf($fp, "%s\n%s\n%s\n\t%s\n", array('<?php', '/** This script is auto generate by auto.php,do not modify this manual */', 'class ClassMethodName{', 'public static $CLASS_METHOD = array('));
 
@@ -15,8 +18,14 @@ foreach($classes as $class){
 	$parentMethods = $classObj->getMethods(ReflectionMethod::IS_PUBLIC);
 	$index = 0;
 	vfprintf($fp, "\t\t%s\n", array('\''.$class.'\' => array('));
+ 
+	$needtrancation = 0;
 	foreach($parentMethods as $m){
-		vfprintf($fp, "\t\t\t%s\t%s\n", array($index++.' => \''.$m->getName().'\',', $m->getDocComment()));
+		if(stripos($m->getDocComment(), 'needtrancation')){
+			$needtrancation = 1;
+		}
+		vfprintf($fp, "\t\t\t%s\t%s\n", array($index++.' => array(\''.$m->getName().'\','.$needtrancation.'),', $m->getDocComment()));
+		$needtrancation = 0;
 	}
 	vfprintf($fp,"\t\t%s\n", array('),'));
 }

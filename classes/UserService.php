@@ -1,5 +1,5 @@
 <?php
-class User extends Base{
+class UserService extends Base{
 
 	public function getUserInfo($userId){
 		//print_r($this->simpleQuery(SQL::$getUserById, array(':userid' => $userId)));
@@ -23,7 +23,21 @@ class User extends Base{
 		//echo createGuid();
 	}
 
+	/** needTrancation */
 	public function testAddUser(){
+		echo "haha";	
+	}
+
+	public function beginTransaction(){
+		parent::baseBeginTransaction();
+	}
+
+	public function commit(){
+		parent::baseCommit();
+	}
+
+	public function rollBack(){
+		parent::baseRollBack();
 	}
 }
 ?>

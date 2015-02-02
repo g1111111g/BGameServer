@@ -1,10 +1,11 @@
 <?php
+require_once('IBase.php');
 require_once('protocol/pb_proto_foo.php');
 require_once('connection/IConnection.php');
 require_once('connection/DBConnection.php');
 require_once('connection/MemcacheConnection.php');
 require_once('config/SQL.php');
-class Base{
+abstract class Base implements IBase{
 	private $dbConnection;
 	private $memcacheConnection;
 
@@ -14,8 +15,8 @@ class Base{
 	private $memcache;
 
 	public function __construct(){
-		//$this->dbConnection = DBConnection::getInstance();
-		//$this->db = $this->dbConnection->getConnection();
+		$this->dbConnection = DBConnection::getInstance();
+		$this->db = $this->dbConnection->getConnection();
 		$this->memcacheConnection = MemcacheConnection::getInstance();
 		$this->memcache = $this->memcacheConnection->getConnection();
 	}
@@ -154,7 +155,6 @@ class Base{
 	protected function query($query, $params = array()){
 		$this->pdoStatement = $this->db->prepare($query);
 		$this->pdoStatement->execute($params);
-		return $sth;
 	}
 
 	protected function fetch(){
@@ -180,15 +180,18 @@ class Base{
 		return $this->db->lastInsertId();
 	}
 
-	protected function beginTransaction(){
+	protected function baseBeginTransaction(){
+	//	echo 'begin transcation\n';
 		$this->db->beginTransaction();
 	}
 
-	protected function commit(){
+	protected function baseCommit(){
+	//	echo 'commit\n';
 		$this->db->commit();
 	}
 
-	protected function rollBack(){
+	protected function baseRollBack(){
+	//	echo 'rollback\n';
 		$this->db->rollBack();
 	}
 
