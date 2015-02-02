@@ -31,6 +31,14 @@ foreach($classes as $class){
 }
 
 vfprintf($fp, "\t%s\n", array(');'));
+
+vfprintf($fp, "\t%s\n", array('public static $CLASS = array('));
+$index = 0;
+foreach($classes as $class){
+	vfprintf($fp, "\t\t%s\n", array($index++.' => \''.$class.'\','));
+}
+vfprintf($fp, "\t%s\n", array(');'));
+
 vfprintf($fp, "%s\n%s", array('}', '?>'));
 if(!fclose($fp)){
 	die("error close file");

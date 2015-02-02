@@ -29,5 +29,9 @@ class ClassMethodName{
 			12 => array('testSql',0),	
 		),
 	);
+	public static $CLASS = array(
+		0 => 'GameService',
+		1 => 'UserService',
+	);
 }
 ?>

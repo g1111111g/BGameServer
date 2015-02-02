@@ -6,7 +6,7 @@ foreach(glob('classes/*.php') as $class){
 	include_once $class;
 }
 //fastcgi_finish_request();
-$className = $_GET['c'];
+$classIndex = $_GET['c'];
 $methodIndex = $_GET['f'];
 $useBin = isset($_GET['b'])?$_GET['b']:0;
 $methodParams = isset($_GET['p'])?json_decode($_GET['p'], true):array();
@@ -25,7 +25,8 @@ try{
 		}
 	}
 	$organizedparams = array();
-	$classObj = new ReflectionClass($className);
+	$className = ClassMethodName::$CLASS[$classIndex];
+	$classObj = new ReflectionClass(ClassMethodName::$CLASS[$classIndex]);
 	$methodName = ClassMethodName::$CLASS_METHOD[$className][$methodIndex][0];
 	$needTrancation = ClassMethodName::$CLASS_METHOD[$className][$methodIndex][1];
 	if($needTrancation){
