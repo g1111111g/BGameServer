@@ -23,11 +23,14 @@ class UserService extends Base{
 		//echo createGuid();
 	}
 
-	/** needTrancation */
+	/** needTransaction */
 	public function testAddUser(){
 		echo "haha";	
 	}
 
+	public function getDbVersion(){
+		echo $this->getMysqlVersion();
+	}
 	public function beginTransaction(){
 		parent::baseBeginTransaction();
 	}

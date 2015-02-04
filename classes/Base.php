@@ -147,6 +147,11 @@ abstract class Base implements IBase{
 			return $result;
 		}
 	}
+
+	protected function getMysqlVersion(){
+		return $this->db->getAttribute(PDO::ATTR_SERVER_VERSION);
+	}
+
 	/**
 	*
 	* @reuturn 预处理可以防止SQL注入，一次prepare多次execute比多次prepare execute性能要好

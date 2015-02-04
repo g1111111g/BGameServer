@@ -21,7 +21,7 @@ foreach($classes as $class){
  
 	$needtrancation = 0;
 	foreach($parentMethods as $m){
-		if(stripos($m->getDocComment(), 'needtrancation')){
+		if(stripos($m->getDocComment(), 'needtransaction')){
 			$needtrancation = 1;
 		}
 		vfprintf($fp, "\t\t\t%s\t%s\n", array($index++.' => array(\''.$m->getName().'\','.$needtrancation.'),', $m->getDocComment()));
