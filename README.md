@@ -1,2 +1,1 @@
-BGameServer
-运行此框架须安装apc,memcache,phpprotobuf扩展
+BGameServer运行此框架须安装apc,memcache,phpprotobuf扩展
