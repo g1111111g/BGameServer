@@ -36,6 +36,7 @@ $loader->register();
 
 use Thrift\Protocol\TBinaryProtocol;
 use Thrift\Transport\TSocket;
+use Thrift\Transport\TFramedTransport;
 use Thrift\Transport\THttpClient;
 use Thrift\Transport\TBufferedTransport;
 use Thrift\Exception\TException;
@@ -45,6 +46,7 @@ try {
     $socket = new THttpClient('localhost', 80, '/PhpServer.php');
   } else {
     $socket = new TSocket('localhost', 9001);
+    $socket = new TFramedTransport($socket);
   }
   $transport = new TBufferedTransport($socket, 1024, 1024);
   $protocol = new TBinaryProtocol($transport);
