@@ -24,6 +24,9 @@ foreach($classes as $class){
 		if(stripos($m->getDocComment(), 'needtransaction')){
 			$needtrancation = 1;
 		}
+		if(stripos($m->getDocComment(), 'notforclient')){
+			continue;
+		}
 		vfprintf($fp, "\t\t\t%s\t%s\n", array($index++.' => array(\''.$m->getName().'\','.$needtrancation.'),', $m->getDocComment()));
 		$needtrancation = 0;
 	}

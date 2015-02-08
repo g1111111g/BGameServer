@@ -31,16 +31,6 @@ class UserService extends Base{
 	public function getDbVersion(){
 		echo $this->getMysqlVersion();
 	}
-	public function beginTransaction(){
-		parent::baseBeginTransaction();
-	}
-
-	public function commit(){
-		parent::baseCommit();
-	}
-
-	public function rollBack(){
-		parent::baseRollBack();
-	}
+	
 }
 ?>

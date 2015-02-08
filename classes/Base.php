@@ -14,6 +14,7 @@ abstract class Base implements IBase{
 
 	private $memcache;
 
+	/** notforclient */
 	public function __construct(){
 		$this->dbConnection = DBConnection::getInstance();
 		$this->db = $this->dbConnection->getConnection();
@@ -185,17 +186,20 @@ abstract class Base implements IBase{
 		return $this->db->lastInsertId();
 	}
 
-	protected function baseBeginTransaction(){
+	/** notforclient */
+	public function beginTransaction(){
 	//	echo 'begin transcation\n';
 		$this->db->beginTransaction();
 	}
 
-	protected function baseCommit(){
+	/** notforclient */
+	public function commit(){
 	//	echo 'commit\n';
 		$this->db->commit();
 	}
 
-	protected function baseRollBack(){
+	/** notforclient */
+	public function rollBack(){
 	//	echo 'rollback\n';
 		$this->db->rollBack();
 	}

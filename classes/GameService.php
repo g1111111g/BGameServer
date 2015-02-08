@@ -4,16 +4,6 @@ class GameService extends Base{
 	public function joinGame(){
 	}	
 
-	public function beginTransaction(){
-		parent::baseBeginTransaction();
-	}
-
-	public function commit(){
-		parent::baseCommit();
-	}
-
-	public function rollBack(){
-		parent::baseRollBack();
-	}
+	
 }
 ?>
