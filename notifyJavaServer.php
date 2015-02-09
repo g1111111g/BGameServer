@@ -43,7 +43,7 @@ use Thrift\Exception\TException;
 
 try {
   if (array_search('--http', $argv)) {
-    $socket = new THttpClient('localhost', 80, '/PhpServer.php');
+    $socket = new THttpClient('localhost', 9001, '/PhpServer.php');
   } else {
     $socket = new TSocket('localhost', 9001);
     $socket = new TFramedTransport($socket);
