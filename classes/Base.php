@@ -153,6 +153,31 @@ abstract class Base implements IBase{
 		return $this->db->getAttribute(PDO::ATTR_SERVER_VERSION);
 	}
 
+	protected function getIdFromDbWithLock($tableName){
+		$this->execQuery("SET autocommit = 0");
+		$this->execQuery("LOCK TABLE car_ids WRITE, car_ids as c READ");
+		$result = $this->simpleQuery(SQL::$getCurrDbIdByTableName, array(":tname" => $tableName));
+		print_r($result);
+		if(!$result){
+			$currId = 1;
+			$this->execQuery(SQL::$insertDbIdWithTableName, array(":tname" => $tableName));
+		}else{
+			$currId = $result["CurrId"];
+			$this->execQuery(SQL::$updateDbIdByTableName, array(":tname" => $tableName));
+		}
+		$this->execQuery("COMMIT");
+		$this->execQuery("UNLOCK TABLES");
+
+	}
+
+	protected function getIdFromDb($tableName){
+
+	//	$this->execQuery("SET autocommit = 0");
+	//	$this->execQuery("LOCK TABLE car_ids WRITE, car_ids READ");
+		print_r($this->simpleQuery(SQL::$getIdFromDb, array(":tablename" => $tableName)));
+	//	$this->execQuery("COMMIT");
+	//	$this->execQuery("UNLOCK TABLES");
+	}
 	/**
 	*
 	* @reuturn 预处理可以防止SQL注入，一次prepare多次execute比多次prepare execute性能要好
@@ -241,14 +266,14 @@ abstract class Base implements IBase{
 
 		if ($error != 0) {
 		    
-		    throw new GameException(ExceptionCode::$net_error, $errmessage, $error);
+		    throw new GameException(GameException::NET_ERROR, $errmessage, $error);
 		}
 
 		$data = json_decode($response);
 
 		if (!is_object($data))
 		{
-		    throw new GameException(ExceptionCode::$net_error, "Invalid response data");
+		    throw new GameException(GameException::NET_ERROR, "Invalid response data");
 		}
 
 		if (!isset($data->status) || $data->status != 0)
@@ -258,7 +283,7 @@ abstract class Base implements IBase{
 		    else
 			$message = "status - ".$data->status;
 		    
-		    throw new GameException(ExceptionCode::$receipt_invalid, "Invalid receipt: ".$message);
+		    throw new GameException(GameException::NET_ERROR, "Invalid receipt: ".$message);
 		}
 
 		return array(

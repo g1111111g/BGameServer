@@ -1,6 +1,6 @@
 <?php
 
-namespace tutorial\php;
+namespace thrift;
 
 error_reporting(E_ALL);
 
@@ -10,9 +10,9 @@ use Thrift\ClassLoader\ThriftClassLoader;
 
 $GEN_DIR = realpath(dirname(__FILE__)).'/gen-php';
 
-$loader = new ThriftClassLoader();
+$loader = new ThriftClassLoader(true,'miaorpc_' );
 $loader->registerNamespace('Thrift', __DIR__ . '/lib');
-$loader->registerDefinition('notify', $GEN_DIR);
+$loader->registerDefinition('thrift', $GEN_DIR);
 $loader->register();
 
 /*
@@ -50,11 +50,11 @@ try {
   }
   $transport = new TBufferedTransport($socket, 1024, 1024);
   $protocol = new TBinaryProtocol($transport);
-  $client = new \notify\NotificationClient($protocol);
+  $client = new RpcServiceClient($protocol);
 
   $transport->open();
 
-  print $client->notifyJbUpdate(10012302, "111222");
+  print_r($client->getPlayerInfoByAccountPwd("10012302", "111222"));
 
   $transport->close();
 

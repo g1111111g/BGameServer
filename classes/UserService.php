@@ -19,8 +19,9 @@ class UserService extends Base{
 	}
 
 	public function testGetUUID(){
-		echo getUUID();
+	//	echo getUUID();
 		//echo createGuid();
+		$this->getIdFromDb("abcde");
 	}
 
 	/** needTransaction */
