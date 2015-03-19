@@ -5,6 +5,7 @@ require_once('connection/IConnection.php');
 require_once('connection/DBConnection.php');
 require_once('connection/MemcacheConnection.php');
 require_once('config/SQL.php');
+require_once('log4php/Logger.php');
 abstract class Base implements IBase{
 	private $dbConnection;
 	private $memcacheConnection;
@@ -13,6 +14,7 @@ abstract class Base implements IBase{
 	private $pdoStatement;
 
 	private $memcache;
+	protected $logger;
 
 	/** notforclient */
 	public function __construct(){
@@ -20,6 +22,8 @@ abstract class Base implements IBase{
 		$this->db = $this->dbConnection->getConnection();
 		$this->memcacheConnection = MemcacheConnection::getInstance();
 		$this->memcache = $this->memcacheConnection->getConnection();
+		$this->logger = Logger::configure(dirname(__FILE__)."/../log4php.xml");
+		$this->logger = Logger::getRootLogger();
 	}
 	/** @needtrancation */
 	public function test($a, $b){
