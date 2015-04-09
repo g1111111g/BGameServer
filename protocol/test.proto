@@ -1,0 +1,78 @@
+syntax="proto2";
+package protobuf;
+
+option java_package = "com.bgame.protobuf";
+option java_outer_classname = "FooOuterClass";
+
+
+message PlayerInfoProtoc{
+	optional int32 userid = 1;
+	optional string nickname = 2;
+	optional bool sex = 3;
+	optional string uuid = 4;
+}
+
+message Equipment{
+	enum Enum_PriceType
+	{
+	    FREE = 0;
+	    GOLDCOIN = 1;
+	    SILVERCOIN = 2;
+	}
+	enum Enum_ShopPropType
+	{
+	    //0-9 身体组成部分(需要蒙皮)
+	    LegAndArm=0;            //手脚
+	    Head=1;                  //头
+	    Shoes=2;                 //鞋子
+	    Cloth=3;                //衣服
+	    Trousers=4;             //裤子
+
+	    //10-19身上装备(需要蒙皮)
+	    LeftArmPad=10;           //带左手上的护具（包括护肘护手臂）
+	    RightArmPad=11;          //带右手上的护具（包括护肘护手臂）
+	    LeftLegPad=12;           //带左腿上的护具（包括护膝护小腿）
+	    RightLegPad=13;          //带右腿上的护具（包括护膝护小腿）
+
+		SkinProp=19;			//小于这个的需要蒙皮(这不是个道具类型，只是标示位)
+
+	    //20-29身上挂件类物品，不用蒙皮，需要挂到虚拟点
+	    Hair = 20;               //头发
+	    HeadWear=21;                  //帽子和头带等饰品
+	    LeftWristband=22;        //左手手环或手表
+	    RightWristband=23;      //右手手环或手表
+
+		PointProp=29;//SkinProp-PointProp属于挂在身上虚拟点的道具，不需要蒙皮(这不是个道具类型，只是标示位)
+
+	    //30-xx非身体道具
+	    Ball=30;
+	    EnergyDrinks=31;       //加体力能量饮料
+	}
+	enum Enum_BoostType
+	{
+	    NONE = 0;
+	    SPEED = 1;
+	    JUMP = 2;
+	    SHOOT = 3;
+	}
+	optional string propID = 1;
+	optional string nameKey = 2;
+	optional string descriptionKey = 3;
+	optional int32 price = 4;
+	optional int32 boostValue = 5;
+	optional int32 timeLimit = 6;
+
+	optional Enum_PriceType priceType = 7;
+	optional Enum_ShopPropType propType = 8;
+	optional Enum_BoostType boostType = 9;
+
+	optional string iconSpriteName = 10;
+	optional string texPath = 11;
+	optional string modelPath = 12;
+}
+
+message RoomPlayerInfoProtoc{
+	optional int32 userid = 1;
+	optional string nickname = 2;
+	repeated int32 equips = 3;
+}

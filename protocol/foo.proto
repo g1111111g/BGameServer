@@ -1,7 +1,27 @@
-syntax = "proto2";
-package protobuf;
+#syntax = "proto2";
+#package protobuf;
 
 option java_package = "protobuf";
+#| Protocol Buffers | PHP    |
+#| ---------------- | ------ |
+#| double           | float  |
+#| float            |        |
+#| ---------------- | ------ |
+#| int32            | int    |
+#| int64            |        |
+#| uint32           |        |
+#| uint64           |        |
+#| sint32           |        |
+#| sint64           |        |
+#| fixed32          |        |
+#| fixed64          |        |
+#| sfixed32         |        |
+#| sfixed64         |        |
+#| ---------------- | ------ |
+#| bool             | bool   |
+#| ---------------- | ------ |
+#| string           | string |
+#| bytes            |        |
 message RemoteCall{
 	required string className = 1;
 	required string functionName = 2;
@@ -45,4 +65,9 @@ message PlayerInfoProtoc{
 	optional string nickname = 2;
 	optional bool sex = 3;
 	optional string uuid = 4;
+}
+
+message RoomPlayerInfoProtoc{
+	optional int32 userid = 1;
+	optional string nickname = 2;
 }

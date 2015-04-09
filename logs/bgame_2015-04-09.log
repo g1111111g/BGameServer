@@ -1,0 +1,455 @@
+2015-04-09 11:52:24,289 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 11:52:24,289 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 11:52:24,289 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 11:52:24,290 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 11:52:24,290 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 11:57:11,046 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 11:57:11,046 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 11:57:11,046 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 11:57:11,046 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 11:57:11,046 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 11:57:45,010 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 11:57:45,010 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 11:57:45,010 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 11:57:45,010 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 11:57:45,010 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:07:52,989 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 12:07:52,990 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:07:52,990 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:07:52,990 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:07:52,990 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:11:31,979 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 12:11:31,979 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:11:31,980 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:11:31,980 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:11:31,980 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:14:06,218 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 12:14:06,218 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:14:06,218 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:14:06,218 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:14:06,218 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:28:06,405 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 12:28:06,405 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:28:06,405 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:28:06,405 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 12:28:06,405 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:08:20,031 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 14:08:20,036 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:08:20,036 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:08:20,036 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:08:20,036 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:17:57,780 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 14:17:57,781 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:17:57,781 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:17:57,781 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:17:57,781 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:18:07,726 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 14:18:07,727 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:18:07,727 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:18:07,727 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:18:07,727 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:19:17,168 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 14:19:17,216 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:19:17,216 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:19:17,216 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:19:17,216 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:19:37,796 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 14:19:37,796 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:19:37,796 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:19:37,796 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:19:37,796 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:20:57,899 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+ 
+ exception 'GameException' with message 'haha' in /alidata/www/default/BGameServer/classes/UserService.php:34
+Stack trace:
+#0 [internal function]: UserService->getDbVersion()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-04-09 14:20:57,899 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:20:57,899 [root] WARN Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:20:57,900 [root] ERROR Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:20:57,900 [root] FATAL Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:24:00,754 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:43:20,948 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:44:38,352 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 14:50:23,531 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 15:33:32,395 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 15:45:59,114 [root] INFO Array
+(
+    [aaa] => 123
+)
+ 
+ 2015-04-09 15:53:52,976 [root] INFO Array
+(
+    [c] => 1
+    [f] => 5
+)
+ 
+ 2015-04-09 15:55:41,759 [root] INFO Array
+(
+    [c] => 1
+    [f] => 5
+)
+ 
+ 2015-04-09 15:55:41,759 [root] INFO {"param1":"hahahahah", "param2":"heheheheh"} 
+ 2015-04-09 16:01:00,046 [root] INFO Array
+(
+    [c] => 1
+    [f] => 5
+)
+ 
+ 2015-04-09 16:01:00,047 [root] INFO {"param1":"hahahahah", "param2":"heheheheh", "param3":{"param2":"fuck"}} 
+ 2015-04-09 16:01:34,851 [root] INFO Array
+(
+    [c] => 1
+    [f] => 5
+)
+ 
+ 2015-04-09 16:01:34,851 [root] INFO {"param1":"hahahahah", "param2":"heheheheh", "param3":{"param4":"fuck"}} 
+ 2015-04-09 16:04:37,384 [root] INFO Array
+(
+    [c] => 1
+    [f] => 5
+)
+ 
+ 2015-04-09 16:04:37,384 [root] INFO {"param1":"hahahahah", "param2":"heheheheh", "param3":{"param4":"fuck"}} 
+ 

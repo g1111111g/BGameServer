@@ -1,0 +1,73 @@
+
+
+message PlayerInfoProtoc{
+	optional int32 userid = 1;
+	optional string nickname = 2;
+	optional bool sex = 3;
+	optional string uuid = 4;
+}
+
+message Equipment{
+	enum Enum_PriceType
+	{
+	    FREE = 0;
+	    GOLDCOIN = 1;
+	    SILVERCOIN = 2;
+	}
+	enum Enum_ShopPropType
+	{
+	    
+	    LegAndArm=0;            
+	    Head=1;                  
+	    Shoes=2;                 
+	    Cloth=3;                
+	    Trousers=4;             
+
+	    
+	    LeftArmPad=10;           
+	    RightArmPad=11;          
+	    LeftLegPad=12;           
+	    RightLegPad=13;          
+
+		SkinProp=19;			
+
+	    
+	    Hair = 20;               
+	    HeadWear=21;                  
+	    LeftWristband=22;        
+	    RightWristband=23;      
+
+		PointProp=29;
+
+	    
+	    Ball=30;
+	    EnergyDrinks=31;       
+	}
+	enum Enum_BoostType
+	{
+	    NONE = 0;
+	    SPEED = 1;
+	    JUMP = 2;
+	    SHOOT = 3;
+	}
+	optional string propID = 1;
+	optional string nameKey = 2;
+	optional string descriptionKey = 3;
+	optional int32 price = 4;
+	optional int32 boostValue = 5;
+	optional int32 timeLimit = 6;
+
+	optional Enum_PriceType priceType = 7;
+	optional Enum_ShopPropType propType = 8;
+	optional Enum_BoostType boostType = 9;
+
+	optional string iconSpriteName = 10;
+	optional string texPath = 11;
+	optional string modelPath = 12;
+}
+
+message RoomPlayerInfoProtoc{
+	optional int32 userid = 1;
+	optional string nickname = 2;
+	repeated int32 equips = 3;
+}

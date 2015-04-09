@@ -1,0 +1,139 @@
+2015-03-20 10:18:32,469 [root] INFO Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:18:57,078 [root] INFO Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:21:17,160 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:21:17,160 [root] INFO Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:21:17,161 [root] WARN Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:21:17,161 [root] ERROR Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:21:17,161 [root] FATAL Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:21:56,205 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:21:56,205 [root] INFO Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:21:56,205 [root] WARN Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:21:56,205 [root] ERROR Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:21:56,205 [root] FATAL Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:22:03,076 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:22:03,077 [root] INFO Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:22:03,077 [root] WARN Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:22:03,077 [root] ERROR Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:22:03,077 [root] FATAL Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:24:04,455 [root] DEBUG Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:24:04,455 [root] INFO Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:24:04,455 [root] WARN Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:24:04,455 [root] ERROR Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:24:04,456 [root] FATAL Array
+(
+    [aaa] => 123
+)
+
+2015-03-20 10:36:22,121 [root] WARN exception 'GameException' with message 'my exception' in /alidata/www/default/BGameServer/classes/Base.php:90
+Stack trace:
+#0 [internal function]: Base->throwException()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-03-20 10:38:06,390 [root] WARN exception 'GameException' with message 'my test exception' in /alidata/www/default/BGameServer/classes/Base.php:90
+Stack trace:
+#0 [internal function]: Base->throwException()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
+2015-03-20 10:40:05,419 [root] WARN aaaa
+2015-03-20 10:46:40,558 [root] WARN /alidata/www/default/BGameServer/classes/Base.php 238 warn exception 'GameException' with message 'my test exception' in /alidata/www/default/BGameServer/classes/Base.php:90
+Stack trace:
+#0 [internal function]: Base->throwException()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}  
+2015-03-20 10:47:31,886 [root] WARN /alidata/www/default/BGameServer/classes/Base.php 238 warn exception 'GameException' with message 'my test exception' in /alidata/www/default/BGameServer/classes/Base.php:90
+Stack trace:
+#0 [internal function]: Base->throwException()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}  
+2015-03-20 10:50:19,643 [root] WARN some error 
+ 2015-03-20 10:51:24,441 [root] WARN some error 
+ 2015-03-20 10:52:17,740 [root] WARN some error 
+ exception 'GameException' with message 'my test exception' in /alidata/www/default/BGameServer/classes/Base.php:90
+Stack trace:
+#0 [internal function]: Base->throwException()
+#1 /alidata/www/default/BGameServer/service.php(45): ReflectionMethod->invokeArgs(Object(UserService), Array)
+#2 {main}
