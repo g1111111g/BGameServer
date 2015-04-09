@@ -9,7 +9,9 @@ foreach(glob('classes/*.php') as $class){
 $classIndex = $_GET['c'];
 $methodIndex = $_GET['f'];
 $useBin = isset($_GET['b'])?$_GET['b']:0;
-$methodParams = isset($_GET['p'])?json_decode($_GET['p'], true):array();
+//$methodParams = isset($_GET['p'])?json_decode($_GET['p'], true):array();
+$postData = file_get_contents("php://input");
+$methodParams = isset($postData)?json_decode($postData, true):array();
 $needTrancation = 0;
 try{
 	if(isset($_POST['req'])){
@@ -56,6 +58,7 @@ try{
 	//echo $gameException->toBinData($useBin);
 //	echo $e->getMessage();
 	echo $e->__toString();
+	$classObj->getMethod("warn")->invokeArgs($instance, array("msg"=>"some error", "exception"=>$e));
 	if($needTrancation){
 		$rollBackMethod->invoke($instance);
 	}

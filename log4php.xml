@@ -18,7 +18,7 @@
 <log4php:configuration xmlns:log4php="http://logging.apache.org/log4php/" threshold="all">
 	<appender name="default" class="LoggerAppenderDailyFile">
 		 <layout class="LoggerLayoutPattern">
-			 <param name="conversionPattern" value="%date{Y-m-d H:i:s,u} [%logger] %level %message%newline" />
+			 <param name="conversionPattern" value="%date{Y-m-d H:i:s,u} [%logger] %level %message %newline %ex" />
 		 </layout>
 		<param name="file" value="logs/bgame_%s.log" />
 		<param name="datePattern" value="Y-m-d" />

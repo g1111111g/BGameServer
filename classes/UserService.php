@@ -30,7 +30,8 @@ class UserService extends Base{
 	}
 
 	public function getDbVersion(){
-		$this->logger->info("aaaa");
+		$this->logger->info($_REQUEST);
+		$this->logger->info(file_get_contents("php://input"));
 		echo $this->getMysqlVersion();
 	}
 	

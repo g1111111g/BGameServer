@@ -87,7 +87,7 @@ abstract class Base implements IBase{
 	}
 
 	public function throwException(){
-		throw new GameException("my exception", 1111);
+		throw new GameException("my test exception", 1111);
 	}
 	public function testTransaction($sql, $needtrancation = 1){
 		
@@ -232,6 +232,11 @@ abstract class Base implements IBase{
 	//	echo 'rollback\n';
 		$this->db->rollBack();
 	}
+
+	/** notforclient */
+	public function warn($msg, $exception){
+		$this->logger->warn($msg, $exception);
+	} 
 
 	/**
 	* 
