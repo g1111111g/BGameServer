@@ -98,26 +98,8 @@ abstract class Base implements IBase{
 		$sth->execute(array(':accountid' => $accountid));
 		$carDateList = new CarDateList();
 		while(FALSE != ($result = $sth->fetch(PDO::FETCH_NAMED))){
-			/*
-			$carDate = new CarDate();
-			$carDate->setDateId($result['DateID']);
-			$carDate->setUserId($result['UserID']);
-			$carDate->setFrom($result['FromAddr']);
-			$carDate->setTo($result['ToAddr']);
-			$carDateList->appendDateList($carDate);
-			*/
 			print_r($result);
 		}
-		//return $carDateList;
-		/*
-		try{
-			$this->db->beginTransaction();
-			$this->db->exec("select * from ");
-			$this->db->commit();
-		}catch(Exception $e){
-			$this->db->rollBack();
-			throw $e;
-		}*/
 	}
 
 	protected function execQuery($query, $params = array()){
