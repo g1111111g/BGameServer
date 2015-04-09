@@ -6,8 +6,8 @@ foreach(glob('classes/*.php') as $class){
 	include_once $class;
 }
 //fastcgi_finish_request();
-$classIndex = $_GET['c'];
-$methodIndex = $_GET['f'];
+$classIndex = filter_input(INPUT_GET, 'c', FILTER_VALIDATE_INT);
+$methodIndex = filter_input(INPUT_GET, 'f', FILTER_VALIDATE_INT);
 $useBin = isset($_GET['b'])?$_GET['b']:0;
 //$methodParams = isset($_GET['p'])?json_decode($_GET['p'], true):array();
 $postData = file_get_contents("php://input");
