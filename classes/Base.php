@@ -1,6 +1,6 @@
 <?php
 require_once('IBase.php');
-require_once('protocol/pb_proto_foo.php');
+require_once('protocol/pb_proto_test1.php');
 require_once('connection/IConnection.php');
 require_once('connection/DBConnection.php');
 require_once('connection/MemcacheConnection.php');
@@ -132,7 +132,7 @@ abstract class Base implements IBase{
 		$sth = $this->db->query($query);
 		if(FALSE != ($result = $sth->fetch(PDO::FETCH_NAMED))){
 			return $result;
-		}
+		}		
 	}
 
 	protected function getMysqlVersion(){
@@ -160,7 +160,10 @@ abstract class Base implements IBase{
 
 	//	$this->execQuery("SET autocommit = 0");
 	//	$this->execQuery("LOCK TABLE car_ids WRITE, car_ids READ");
-		print_r($this->simpleQuery(SQL::$getIdFromDb, array(":tablename" => $tableName)));
+		
+		$this->query(SQL::$getIdFromDb, array(":tname" => $tableName));
+		$row = $this->fetch();
+		return $row['id'];
 	//	$this->execQuery("COMMIT");
 	//	$this->execQuery("UNLOCK TABLES");
 	}
@@ -199,19 +202,19 @@ abstract class Base implements IBase{
 
 	/** notforclient */
 	public function beginTransaction(){
-	//	echo 'begin transcation\n';
+		echo 'begin transcation\r\n';
 		$this->db->beginTransaction();
 	}
 
 	/** notforclient */
 	public function commit(){
-	//	echo 'commit\n';
+		echo 'commit\r\n';
 		$this->db->commit();
 	}
 
 	/** notforclient */
 	public function rollBack(){
-	//	echo 'rollback\n';
+		echo 'rollback\r\n';
 		$this->db->rollBack();
 	}
 

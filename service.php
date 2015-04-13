@@ -1,5 +1,7 @@
 <?php
+header('Content-Type: text/html; charset=UTF-8');
 require_once('exception/GameException.php');
+require_once('exception/ExceptionCode.php');
 require_once('config/ClassMethod.php');
 require_once('utils/functions.php');
 foreach(glob('classes/*.php') as $class){
@@ -9,9 +11,11 @@ foreach(glob('classes/*.php') as $class){
 $classIndex = filter_input(INPUT_GET, 'c', FILTER_VALIDATE_INT);
 $methodIndex = filter_input(INPUT_GET, 'f', FILTER_VALIDATE_INT);
 $useBin = isset($_GET['b'])?$_GET['b']:0;
-//$methodParams = isset($_GET['p'])?json_decode($_GET['p'], true):array();
 $postData = file_get_contents("php://input");
 $methodParams = !empty($postData)?json_decode($postData, true):array();
+if(count($methodParams) == 0){
+	$methodParams = isset($_GET['p'])?json_decode($_GET['p'], true):array();
+}
 $needTrancation = 0;
 try{
 	if(isset($_POST['req'])){
@@ -46,6 +50,7 @@ try{
 	}else{
 		$invokeResult = $methodObj->invokeArgs($instance, $methodParams);
 	}
+	//echo $invokeResult;
 	echo $invokeResult?$invokeResult->serializeToString():'';
 //	error_log($invokeResult->serializeToString());
 }catch(Exception $e){

@@ -10,16 +10,18 @@ class ClassMethodName{
 			4 => array('testSql',0),	
 		),
 		'UserService' => array(
-			0 => array('getUserInfo',0),	
-			1 => array('testMemcacheAdd',0),	
-			2 => array('testMemcacheGet',0),	
-			3 => array('testGetUUID',0),	
-			4 => array('testAddUser',1),	/** needTransaction */
-			5 => array('getDbVersion',0),	
-			6 => array('test',0),	/** @needtrancation */
-			7 => array('throwException',0),	
-			8 => array('testTransaction',0),	
-			9 => array('testSql',0),	
+			0 => array('login',0),	
+			1 => array('register',1),	/** needTransaction */
+			2 => array('getUserInfo',0),	
+			3 => array('testMemcacheAdd',0),	
+			4 => array('testMemcacheGet',0),	
+			5 => array('testGetUUID',0),	
+			6 => array('testAddUser',1),	/** needTransaction */
+			7 => array('getDbVersion',0),	
+			8 => array('test',0),	/** @needtrancation */
+			9 => array('throwException',0),	
+			10 => array('testTransaction',0),	
+			11 => array('testSql',0),	
 		),
 	);
 	public static $CLASS = array(
