@@ -23,7 +23,7 @@ class DBConnection implements IConnection{
             }
         }*/
 	try{
-		$dsn = 'mysql:dbname=yue;host=182.254.191.120;port=3306';
+		$dsn = 'mysql:dbname=bgame;host=182.254.191.120;port=3306';
 		$username = 'root';
 		$password = 'powernetrgame001';
 		$options = array(

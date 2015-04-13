@@ -452,4 +452,46 @@ Stack trace:
 )
  
  2015-04-09 16:04:37,384 [root] INFO {"param1":"hahahahah", "param2":"heheheheh", "param3":{"param4":"fuck"}} 
+ 2015-04-09 17:20:29,514 [root] INFO Array
+(
+    [c] => 1
+    [f] => 5
+)
+ 
+ 2015-04-09 17:20:29,514 [root] INFO {"param1":"hahahahah", "param2":"heheheheh", "param3":{"param4":"fuck"}} 
+ 2015-04-09 17:23:49,931 [root] INFO Array
+(
+    [c] => 1
+    [f] => 5
+)
+ 
+ 2015-04-09 17:23:49,931 [root] INFO {"param1":"hahahahah", "param2":"heheheheh", "param3":{"param4":"fuck"}} 
+ 2015-04-09 17:26:18,401 [root] INFO Array
+(
+    [c] => 1
+    [f] => 5
+)
+ 
+ 2015-04-09 17:26:18,401 [root] INFO {"param1":"hahahahah", "param2":"heheheheh", "param3":{"param4":"fuck"}} 
+ 2015-04-09 18:17:08,600 [root] INFO Array
+(
+    [c] => 1
+    [f] => 5
+)
+ 
+ 2015-04-09 18:17:08,600 [root] INFO {"param1":"hahahahah", "param2":"heheheheh", "param3":{"param4":"fuck"}} 
+ 2015-04-09 18:19:12,341 [root] INFO Array
+(
+    [c] => 1
+    [f] => 5
+)
+ 
+ 2015-04-09 18:19:12,341 [root] INFO {"param1":"hahahahah", "param2":"heheheheh", "param3":{"param4":"fuck"}} 
+ 2015-04-09 18:32:17,098 [root] INFO Array
+(
+    [c] => 1
+    [f] => 5
+)
+ 
+ 2015-04-09 18:32:17,098 [root] INFO {"param1":"hahahahah", "param2":"heheheheh", "param3":{"param4":"fuck"}} 
  

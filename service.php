@@ -11,7 +11,7 @@ $methodIndex = filter_input(INPUT_GET, 'f', FILTER_VALIDATE_INT);
 $useBin = isset($_GET['b'])?$_GET['b']:0;
 //$methodParams = isset($_GET['p'])?json_decode($_GET['p'], true):array();
 $postData = file_get_contents("php://input");
-$methodParams = isset($postData)?json_decode($postData, true):array();
+$methodParams = !empty($postData)?json_decode($postData, true):array();
 $needTrancation = 0;
 try{
 	if(isset($_POST['req'])){
