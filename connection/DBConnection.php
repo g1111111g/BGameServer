@@ -23,9 +23,9 @@ class DBConnection implements IConnection{
             }
         }*/
 	try{
-		$dsn = 'mysql:dbname=bgame;host=182.254.191.120;port=3306';
+		$dsn = 'mysql:dbname=bgame;host=127.0.0.1;port=3306';
 		$username = 'root';
-		$password = 'powernetrgame001';
+		$password = 'root';
 		$options = array(
 				PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES UTF8',
 				PDO::ATTR_PERSISTENT => true	/*持久化连接*/
